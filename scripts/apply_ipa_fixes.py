@@ -412,15 +412,18 @@ def process_upa_row(
         # If so, process all variants and join with ", ".
         form_has_multi = bool(re.search(r"[,~]", form))
         if form_has_multi:
-            # Process each variant independently, reusing the main logic.
+            # Process each variant independently for item_IPA (comma-joined).
+            # For Segments, use only the first variant -- multi-form rows
+            # cannot have a meaningful single segmentation. A future revision
+            # should split these into separate CLDF rows.
             all_ipa: list[str] = []
-            all_seg: list[str] = []
-            for v in variants:
+            first_seg: str = ""
+            for i, v in enumerate(variants):
                 ipa_v, seg_v = process_upa_row(v, v, lang_id)
                 all_ipa.append(ipa_v)
-                if seg_v:
-                    all_seg.append(seg_v)
-            return (", ".join(all_ipa), " ".join(all_seg))
+                if i == 0:
+                    first_seg = seg_v
+            return (", ".join(all_ipa), first_seg)
 
         matched = match_form_to_upa_variant(form, variants)
         if matched is None:
