@@ -1,30 +1,30 @@
-"uralex_lang"	"language"	"iso-639-3"	"glottocode"	"description"	"subgroup"
-"Erzya"	"Erzya"	"myv"	"erzy1239"	""	"Mordvin"
-"Estonian_South"	"Võro South Estonian"	"vro"	"voro1241"	""	"Finnic"
-"Estonian_Standard"	"Standard Estonian"	"ekk"	"ekk"	""	"Finnic"
-"Finnish_Standard"	"Standard Finnish"	"fin"	"finn1318"	""	"Finnic"
-"Hungarian"	"Hungarian"	"hun"	"hung1274"	""	"Ugric"
-"Ingrian"	"Ingrian"	"izh"	"ingr1248"	""	"Finnic"
-"Karelian_Proper"	"Karelian Proper"	"krl"	"kare1335"	""	"Finnic"
-"Khanty_Vakh_Vasyugan"	"Vakh-Vasyugan Khanty"	""	"fare1244"	"An eastern Khanty dialect."	"Ugric"
-"Komi_Permyak"	"Komi-Permyak"	"koi"	"komi1269"	""	"Permic"
-"Komi_Zyrian"	"Komi-Zyrian"	"kpv"	"komi1268"	""	"Permic"
-"Livonian_Courland"	"Courland Livonian"	""	"west1760"	"Courland dialect of Livonian"	"Finnic"
-"Mansi_Sosva"	"Sosva Mansi"	""	"mans1258"	"A northern Mansi dialect."	"Ugric"
-"Mari_Hill"	"Hill Mari"	"mrj"	"kozy1238"	""	"Mari"
-"Mari_Meadow"	"Meadow Mari"	"mhr"	"gras1239"	""	"Mari"
-"Moksha"	"Moksha"	"mdf"	"moks1248"	""	"Mordvin"
-"Nenets_Tundra"	"Tundra Nenets"	""	"nene1249"	"Linguist list code: yrk-tun"	"Samoyed"
-"Nganasan"	"Nganasan"	"nio"	"ngan1291"	""	"Samoyed"
-"Proto_Uralic"	"Proto-Uralic*"	""	"ural1272"	""	"(reconstr.)"
-"Saami_Inari"	"Inari Saami"	"smn"	"inar1241"	""	"Saami"
-"Saami_Kildin"	"Kildin Saami"	"sjd"	"kild1236"	""	"Saami"
-"Saami_North"	"North Saami"	"sme"	"nort2671"	""	"Saami"
-"Saami_Pite"	"Pite Saami"	"sje"	"pite1240"	""	"Saami"
-"Saami_Skolt"	"Skolt Saami"	"sms"	"skol1241"	""	"Saami"
-"Saami_South"	"South Saami"	"sma"	"sout2674"	""	"Saami"
-"Saami_Ume"	"Ume Saami"	"sju"	"umes1235"	""	"Saami"
-"Selkup_Northern"	"Selkup"	""	"selk1253"	"Taz dialect of Selkup"	"Samoyed"
-"Udmurt"	"Udmurt"	"udm"	"udmu1245"	""	"Permic"
-"Veps"	"Veps"	"vep"	"veps1250"	""	"Finnic"
-"Votic_Western"	"Western Votic"	""	"west2391"	"Linguist list code: vot-wes"	"Finnic"
+uralex_lang	language	iso_639_3	glottocode	description	subgroup
+erzya	Erzya	myv	erzy1239		Mordvin
+estonian_south	Võro South Estonian	vro	voro1241		Finnic
+estonian_standard	Standard Estonian	ekk	esto1258		Finnic
+finnish_standard	Standard Finnish	fin	finn1318		Finnic
+hungarian	Hungarian	hun	hung1274		Ugric
+ingrian	Ingrian	izh	ingr1248		Finnic
+karelian_proper	Karelian Proper	krl	kare1335		Finnic
+khanty_vakh_vasyugan	Vakh-Vasyugan Khanty		fare1244	An eastern Khanty dialect.	Ugric
+komi_permyak	Komi-Permyak	koi	komi1269		Permic
+komi_zyrian	Komi-Zyrian	kpv	komi1268		Permic
+livonian_courland	Courland Livonian		west1760	Courland dialect of Livonian	Finnic
+mansi_sosva	Sosva Mansi		mans1258	A northern Mansi dialect.	Ugric
+mari_hill	Hill Mari	mrj	kozy1238		Mari
+mari_meadow	Meadow Mari	mhr	gras1239		Mari
+moksha	Moksha	mdf	moks1248		Mordvin
+nenets_tundra	Tundra Nenets		nene1249	Linguist list code: yrk-tun	Samoyed
+nganasan	Nganasan	nio	ngan1291		Samoyed
+proto_uralic	Proto-Uralic*		ural1272		(reconstr.)
+saami_inari	Inari Saami	smn	inar1241		Saami
+saami_kildin	Kildin Saami	sjd	kild1236		Saami
+saami_north	North Saami	sme	nort2671		Saami
+saami_pite	Pite Saami	sje	pite1240		Saami
+saami_skolt	Skolt Saami	sms	skol1241		Saami
+saami_south	South Saami	sma	sout2674		Saami
+saami_ume	Ume Saami	sju	umes1235		Saami
+selkup_northern	Selkup		selk1253	Taz dialect of Selkup	Samoyed
+udmurt	Udmurt	udm	udmu1245		Permic
+veps	Veps	vep	veps1250		Finnic
+votic_western	Western Votic		west2391	Linguist list code: vot-wes	Finnic

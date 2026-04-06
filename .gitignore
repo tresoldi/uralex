@@ -105,3 +105,6 @@ venv.bak/
 .idea
 
 cldf/.transcription-report.json
+node_modules/
+raw_narrow/
+PROMPT.md

@@ -58,69 +58,93 @@ The dataset is released under Creative Commons Attribution 4.0. The authors welc
 
 The raw version of the dataset (found in the `raw` folder of the repository) is organized into seven tables, provided as separate TSV (tab-separated values) files, as well as a BibTeX reference file, which specifies the bibliographical references. The overall data structure of each table in the basic vocabulary dataset is described below, with separate sections for each table of the dataset.
 
-The repository also includes a CLDF conversion of the data, produced by Robert Forkel and Luke Maurits.
+The repository also includes a CLDF conversion of an earlier version of the data, archived in `archive/`.
 
 ### `Data.tsv`
 
-This table contains the main data of the basic vocabulary dataset, including each recorded lexeme along with their correlate and cognate sets.
+This table contains the main data of the basic vocabulary dataset, including each recorded lexeme along with their correlate and cognate sets. Each row represents a single lexical form. When a language has multiple forms for the same meaning, each form gets its own row with a sequential variant number.
 
 1.  `uralex_lang`
 
-    Language key.
+    Language key (lowercase with underscores, e.g. `finnish_standard`).
 
 2.  `uralex_mng`
 
     Meaning key.
 
-3.  `item`
+3.  `variant`
 
-    Lexeme data. Contains a lexeme or [No equivalent] (no suitable equivalent for a meaning exists), [Form not found] (no suitable equivalent was found) or [Not reconstructable] (non-recontructable meanings in Proto-Uralic).
+    Variant number within a (language, meaning) group, starting at 1. When a language has a single form for a meaning, the variant is 1. When there are multiple forms (e.g. synonyms), they are numbered sequentially.
 
-4.  `item_UPA`
+4.  `status`
 
-    Phonetic transcription in Uralic Phonetic Alphabet (included for 11 languages).
+    Empty for normal lexical entries. Set to `no_equivalent` (no suitable equivalent for a meaning exists), `form_not_found` (no suitable equivalent was found) or `not_reconstructable` (non-reconstructable meanings in Proto-Uralic) for entries without lexical data. When status is set, all form fields are empty.
 
-5.  `item_IPA`
+5.  `item`
 
-    Phonetic transcription in International Phonetic Alphabet (included for 16 languages).
+    Lexeme data.
 
-6.  `form_set`
+6.  `item_alt`
 
-    Correlate set (historical connection based on borrowing or cognacy), marked with positive integers. For [No equivalent] items the field is marked with '0'; for [Form not found] and [Not reconstructable] items the field is marked with '?'.
+    Free variants of the lexeme (alternative forms separated by ` ~ `), if any. These represent phonological or orthographic variants of the same word, as opposed to separate lexical entries (which get their own rows).
 
-7. `cogn_set`
+7.  `item_upa`
 
-    Cognate set (historical connection based on cognacy), marked with one-letter or two-letter codes. For [No equivalent] items the field is marked with '0'; for [Form not found] and [Not reconstructable] items the field is marked with '?'.
+    Phonetic transcription in Uralic Phonetic Alphabet (available for 13 languages).
 
-8. `borr_source`
+8.  `item_upa_alt`
+
+    Free variants of the UPA transcription, if any.
+
+9.  `item_ipa`
+
+    Phonetic transcription in International Phonetic Alphabet (available for 17 languages).
+
+10. `item_ipa_alt`
+
+    Free variants of the IPA transcription, if any.
+
+11. `segments`
+
+    Space-separated IPA segments (e.g. `t ɑ n`). Available for most rows that have IPA transcription.
+
+12. `form_set`
+
+    Correlate set (historical connection based on borrowing or cognacy), marked with positive integers. Empty for status entries.
+
+13. `cogn_set`
+
+    Cognate set (historical connection based on cognacy), marked with one-letter or two-letter codes. Empty for status entries.
+
+14. `borr_source`
 
     Borrowing source of lexeme.
 
-9. `borr_qual`
+15. `borr_qual`
 
     Likelihood of borrowing (*possible*, *probable* or *clear*).
 
-10. `etym_notes`
+16. `etym_notes`
 
     Notes related to etymology of the lexeme.
 
-11. `glossing_notes`
+17. `glossing_notes`
 
     Notes related to the meaning of the lexeme.
 
-12. `general_notes`
+18. `general_notes`
 
     Other notes related to the lexeme.
-	
-13. `ref_cogn`
 
-	Bibliographical references related to cognate judgment. Multiple references separated by comma and space.
+19. `ref_cogn`
 
-14. `ref_borr`
+    Bibliographical references related to cognate judgment. Multiple references separated by comma and space.
 
-	Bibliographical references related to borrowed lexemes. Multiple references separated by comma and space. The references are listed in order of importance.
+20. `ref_borr`
 
-15. `ref_item`
+    Bibliographical references related to borrowed lexemes. Multiple references separated by comma and space. The references are listed in order of importance.
+
+21. `ref_item`
 
     Bibliographical references related to lexeme. Multiple references separated by comma and space.
 
@@ -152,7 +176,7 @@ This table provides language-related information.
 
     Language name.
 
-3.  `iso-639-3`
+3.  `iso_639_3`
 
     ISO-639-3 code for the language (if available).
 
@@ -176,35 +200,35 @@ This table specifies the meaning lists and related information. The meanings fou
 
     Meaning key.
 
-2.  `LJ_rank`
+2.  `lj_rank`
 
     Leipzig-Jakarta rank, included for meanings belonging to either WOLD401-500 or Leipzig-Jakarta and marked "-" for the remaining meanings.
 
-3.  `Leipzig-Jakarta`
+3.  `leipzig_jakarta`
 
     Leipzig-Jakarta list. Notably, the UraLex version of the list covers 101 meanings instead of 100. This is because "foot" and "leg" in UraLex are represented as separate meanings, in the style of the Swadesh200 list, and not as a combined meaning "foot/leg", as they are on the official Leipzig-Jakarta list.
 
-4.  `Fullbasic`
+4.  `fullbasic`
 
     Swadesh200 + Swadesh100 + Leipzig-Jakarta list.
 
-5.  `Swadesh100`
+5.  `swadesh100`
 
     Swadesh100 list.
 
-6. `Swadesh200`
+6. `swadesh200`
 
     Swadesh200 list.
 
-7.  `Swadesh207`
+7.  `swadesh207`
 
     Swadesh200 + Swadesh100 list.
 
-8.  `Ura100`
+8.  `ura100`
 
     Ura100 list (see Syrjänen *et al.* 2013).
 
-9.  `WOLD401-500`
+9.  `wold401_500`
 
     WOLD401-500 list (see Lehtinen *et al.* 2014).
 
@@ -224,19 +248,15 @@ This table provides more verbose descriptions for the meaning lists found in the
 
 This table records the word list collectors and double-checkers of each language.
 
-1.  `lgid3`
+1.  `uralex_lang`
 
-    BEDLAN dataset numerical language code.
+    Language key.
 
-2.  `(language)`
-
-    Language name.
-
-3.  `collected_by`
+2.  `collected_by`
 
     Who has collected the data for a language.
 
-4.  `final_wordlist_checked_by`
+3.  `final_wordlist_checked_by`
 
     Who has checked the wordlist for a language.
 
@@ -279,6 +299,8 @@ Swadesh, M. (1952). "Lexicostatistic dating of prehistoric ethnic contacts." *Pr
 Swadesh, M. (1955). "Towards greater accuracy in lexicostatistic dating." *International Journal of American Linguistics* 21, 121-137.
 
 Syrjänen, K., T. Honkola, K. Korhonen, J. Lehtinen, O. Vesakoski, & N. Wahlberg. (2013). "Shedding more light on language classification using basic vocabularies and phylogenetic methods. A case study of Uralic." *Diachronica* 30(3), 323-352.  DOI: 10.1075/dia.30.3.02syr.
+
+Syrjänen, K., L. Maurits, U.-P. Leino, T. Honkola, J. Rota & O. Vesakoski. (2021). "Crouching TIGER, hidden structure: Exploring the nature of linguistic data using TIGER values." *Journal of Language Evolution* 6(2), 99-118. DOI: 10.1093/jole/lzab004.
 
 Tadmor, U. (2009). "Loanwords in the world's languages: Findings and results." In M. Haspelmath & U. Tadmor (eds.), *Loanwords in the world's languages: A comparative handbook*, 55-75. Berlin: Walter de Gruyter.
 

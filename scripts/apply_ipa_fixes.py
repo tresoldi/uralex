@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Apply IPA transcriptions from UPA data using merkmal's UPA adapter.
 
-Reads cldf/forms.csv, converts UPA transcriptions to IPA segments,
+Reads archive/cldf/forms.csv, converts UPA transcriptions to IPA segments,
 applies language-specific post-processing, and writes back.
 
 Usage:
@@ -18,9 +18,7 @@ from pathlib import Path
 
 from merkmal.upa import adapt
 
-# ---------------------------------------------------------------------------
 # Constants
-# ---------------------------------------------------------------------------
 
 FORMS_CSV = Path(__file__).resolve().parent.parent / "cldf" / "forms.csv"
 LANGUAGES_CSV = Path(__file__).resolve().parent.parent / "cldf" / "languages.csv"
@@ -48,9 +46,7 @@ AFFRICATE_DECOMPOSE: dict[str, str] = {
 _INVERTED_BREVE_ABOVE = "\u0311"
 
 
-# ---------------------------------------------------------------------------
 # Language name lookup
-# ---------------------------------------------------------------------------
 
 def load_language_names() -> dict[str, str]:
     """Load language ID -> Name mapping from languages.csv."""
@@ -61,9 +57,7 @@ def load_language_names() -> dict[str, str]:
     return names
 
 
-# ---------------------------------------------------------------------------
 # IPA segmentation for IPA-only rows
-# ---------------------------------------------------------------------------
 
 # IPA modifier letters that attach to the preceding segment.
 _IPA_MODIFIERS = frozenset([
@@ -126,9 +120,7 @@ def segment_ipa(text: str) -> list[str]:
     return segments
 
 
-# ---------------------------------------------------------------------------
 # Pre-processing of UPA text before adapt()
-# ---------------------------------------------------------------------------
 
 def preprocess_upa(text: str) -> str:
     """Pre-process UPA text before passing to merkmal's adapt().
@@ -153,9 +145,7 @@ def preprocess_upa(text: str) -> str:
 _BREVE_PLACEHOLDER = "\uFFFF"  # private use, restored in post-processing
 
 
-# ---------------------------------------------------------------------------
 # Post-processing overrides
-# ---------------------------------------------------------------------------
 
 def apply_universal_overrides(segments: list[str]) -> list[str]:
     """Apply universal post-processing overrides to IPA segments.
@@ -241,9 +231,7 @@ def apply_geminate_merging(segments: list[str]) -> list[str]:
     return result
 
 
-# ---------------------------------------------------------------------------
 # Form-to-UPA variant matching
-# ---------------------------------------------------------------------------
 
 def _normalize_for_matching(text: str) -> str:
     """Normalize a string for fuzzy matching between Form and UPA variants."""
@@ -330,9 +318,7 @@ def match_form_to_upa_variant(form: str, variants: list[str]) -> str | None:
     return None
 
 
-# ---------------------------------------------------------------------------
 # Main processing
-# ---------------------------------------------------------------------------
 
 def apply_labialization(segments: list[str]) -> list[str]:
     """Convert post-consonant 'w' to labialization modifier 'ʷ'.

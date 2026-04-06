@@ -199,7 +199,7 @@ cd uralex/
 PYTHONPATH=/path/to/distfeat/src python3 scripts/apply_ipa_fixes.py
 ```
 
-The script reads `cldf/forms.csv`, applies all conversions, and
+The script reads `archive/cldf/forms.csv`, applies all conversions, and
 writes the result back. Statistics go to stdout.
 
 `scripts/ipa_discrepancy_report.py` compares item_IPA against raw
