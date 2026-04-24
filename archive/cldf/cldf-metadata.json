@@ -1,0 +1,534 @@
+{
+    "@context": "http://www.w3.org/ns/csvw",
+    "aboutUrl": null,
+    "dc:conformsTo": "http://cldf.clld.org/v1.0/terms.rdf#Wordlist",
+    "dc:isVersionOf": null,
+    "dc:license": "https://creativecommons.org/licenses/by/4.0/",
+    "dc:related": null,
+    "dc:source": "sources.bib",
+    "dc:title": "Uralic basic vocabulary with cognate and loanword information",
+    "dcat:accessURL": "https://github.com/lexibank/uralex",
+    "prov:wasDerivedFrom": [
+        {
+            "rdf:type": "prov:Entity",
+            "dc:title": "Repository",
+            "rdf:about": "https://github.com/lexibank/uralex",
+            "dc:created": "v1.0-23-g3ac3da4"
+        },
+        {
+            "rdf:type": "prov:Entity",
+            "dc:title": "Glottolog",
+            "rdf:about": "https://github.com/glottolog/glottolog",
+            "dc:created": "v4.4"
+        },
+        {
+            "rdf:type": "prov:Entity",
+            "dc:title": "Concepticon",
+            "rdf:about": "https://github.com/concepticon/concepticon-data",
+            "dc:created": "v2.4.0"
+        },
+        {
+            "rdf:type": "prov:Entity",
+            "dc:title": "CLTS",
+            "rdf:about": "https://github.com/cldf-clts/clts",
+            "dc:created": "v2.1.0"
+        }
+    ],
+    "prov:wasGeneratedBy": [
+        {
+            "dc:title": "python",
+            "dc:description": "3.8.5"
+        },
+        {
+            "dc:title": "python-packages",
+            "dc:relation": "requirements.txt"
+        }
+    ],
+    "rdf:ID": "uralex",
+    "rdf:type": "http://www.w3.org/ns/dcat#Distribution",
+    "dialect": {
+        "commentPrefix": null
+    },
+    "tables": [
+        {
+            "dc:conformsTo": "http://cldf.clld.org/v1.0/terms.rdf#FormTable",
+            "dc:extent": 10231,
+            "tableSchema": {
+                "columns": [
+                    {
+                        "datatype": "string",
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#id",
+                        "required": true,
+                        "name": "ID"
+                    },
+                    {
+                        "datatype": "string",
+                        "propertyUrl": "http://purl.org/dc/terms/identifier",
+                        "name": "Local_ID"
+                    },
+                    {
+                        "datatype": "string",
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#languageReference",
+                        "name": "Language_ID"
+                    },
+                    {
+                        "datatype": "string",
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#parameterReference",
+                        "name": "Parameter_ID",
+                        "titles": "Concept_ID"
+                    },
+                    {
+                        "dc:description": "Lexeme data. Contains a lexeme or '[No equivalent]': no suitable equivalent for a meaning exists), '[Form not found]': no suitable equivalent was found, or '[Not reconstructable]': non-recontructable meanings in Proto-Uralic.",
+                        "datatype": "string",
+                        "null": [
+                            "[Form not found]",
+                            "[Not reconstructable]",
+                            "[No equivalent]"
+                        ],
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#value",
+                        "required": false,
+                        "name": "Value"
+                    },
+                    {
+                        "datatype": "string",
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#form",
+                        "required": false,
+                        "name": "Form"
+                    },
+                    {
+                        "datatype": "string",
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#segments",
+                        "separator": " ",
+                        "name": "Segments"
+                    },
+                    {
+                        "datatype": "string",
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#comment",
+                        "name": "Comment"
+                    },
+                    {
+                        "datatype": "string",
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#source",
+                        "separator": ";",
+                        "name": "Source"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "Cognacy"
+                    },
+                    {
+                        "datatype": "boolean",
+                        "name": "Loan"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "Graphemes"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "Profile"
+                    },
+                    {
+                        "dc:description": "Phonetic transcription in Uralic Phonetic Alphabet (included for 11 languages).",
+                        "datatype": "string",
+                        "name": "item_UPA"
+                    },
+                    {
+                        "dc:description": "Phonetic transcription in International Phonetic Alphabet (included for 16 languages).",
+                        "datatype": "string",
+                        "name": "item_IPA"
+                    },
+                    {
+                        "dc:description": "Correlate set (historical connection based on borrowing or cognacy), marked with positive integers. For [No equivalent] items the field is marked with '0'; for [Form not found] and [Not reconstructable] items the field is marked with '?'.",
+                        "datatype": {
+                            "base": "integer",
+                            "minimum": 0
+                        },
+                        "null": [
+                            "?"
+                        ],
+                        "name": "form_set"
+                    },
+                    {
+                        "dc:description": "Notes related to etymology of the lexeme.",
+                        "datatype": "string",
+                        "name": "etym_notes"
+                    },
+                    {
+                        "dc:description": "Notes related to the meaning of the lexeme.",
+                        "datatype": "string",
+                        "name": "glossing_notes"
+                    }
+                ],
+                "foreignKeys": [
+                    {
+                        "columnReference": [
+                            "Language_ID"
+                        ],
+                        "reference": {
+                            "resource": "languages.csv",
+                            "columnReference": [
+                                "ID"
+                            ]
+                        }
+                    },
+                    {
+                        "columnReference": [
+                            "Parameter_ID"
+                        ],
+                        "reference": {
+                            "resource": "parameters.csv",
+                            "columnReference": [
+                                "ID"
+                            ]
+                        }
+                    }
+                ],
+                "primaryKey": [
+                    "ID"
+                ]
+            },
+            "url": "forms.csv"
+        },
+        {
+            "dc:conformsTo": "http://cldf.clld.org/v1.0/terms.rdf#LanguageTable",
+            "dc:extent": 27,
+            "tableSchema": {
+                "columns": [
+                    {
+                        "datatype": "string",
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#id",
+                        "name": "ID"
+                    },
+                    {
+                        "datatype": "string",
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#name",
+                        "name": "Name"
+                    },
+                    {
+                        "datatype": "string",
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#glottocode",
+                        "valueUrl": "http://glottolog.org/resource/languoid/id/{glottolog_id}",
+                        "name": "Glottocode"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "Glottolog_Name"
+                    },
+                    {
+                        "datatype": "string",
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#iso639P3code",
+                        "name": "ISO639P3code"
+                    },
+                    {
+                        "datatype": "string",
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#macroarea",
+                        "name": "Macroarea"
+                    },
+                    {
+                        "datatype": {
+                            "base": "decimal",
+                            "minimum": -90,
+                            "maximum": 90
+                        },
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#latitude",
+                        "required": false,
+                        "name": "Latitude"
+                    },
+                    {
+                        "datatype": {
+                            "base": "decimal",
+                            "minimum": -180,
+                            "maximum": 180
+                        },
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#longitude",
+                        "required": false,
+                        "name": "Longitude"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "Family"
+                    },
+                    {
+                        "dc:description": "Additional language description.",
+                        "datatype": "string",
+                        "name": "Description"
+                    },
+                    {
+                        "dc:description": "Traditional subgroup of the language.",
+                        "datatype": "string",
+                        "name": "Subgroup"
+                    }
+                ],
+                "primaryKey": [
+                    "ID"
+                ]
+            },
+            "url": "languages.csv"
+        },
+        {
+            "dc:conformsTo": "http://cldf.clld.org/v1.0/terms.rdf#ParameterTable",
+            "dc:extent": 313,
+            "tableSchema": {
+                "columns": [
+                    {
+                        "datatype": "string",
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#id",
+                        "name": "ID"
+                    },
+                    {
+                        "datatype": "string",
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#name",
+                        "name": "Name"
+                    },
+                    {
+                        "datatype": "string",
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#concepticonReference",
+                        "valueUrl": "http://concepticon.clld.org/parameters/{concepticon_id}",
+                        "name": "Concepticon_ID"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "Concepticon_Gloss"
+                    },
+                    {
+                        "dc:description": "Verbose definition of a meaning.",
+                        "datatype": "string",
+                        "name": "Definition"
+                    },
+                    {
+                        "dc:description": "Leipzig-Jakarta rank, included for meanings belonging to either WOLD401-500 or Leipzig-Jakarta.",
+                        "datatype": "integer",
+                        "null": [
+                            "-"
+                        ],
+                        "name": "LJ_rank"
+                    },
+                    {
+                        "dc:description": "Rank in WOLD401-500 401-500, see Lehtinen et al. (2014).",
+                        "datatype": "string",
+                        "name": "WOLD401_500_rank"
+                    },
+                    {
+                        "dc:description": "Present in Ura100 list - A list for stable Uralic vocabulary, based on information from 17 languages and 226 meanings covered by the first version of the dataset. Used in Syrj\u00e4nen et al. (2013), Honkola et al. (2013) and Lehtinen et al. (2014).",
+                        "datatype": {
+                            "base": "boolean",
+                            "format": "yes|no"
+                        },
+                        "name": "Ura100"
+                    },
+                    {
+                        "dc:description": "Present in 100-item Swadesh list.",
+                        "datatype": {
+                            "base": "boolean",
+                            "format": "yes|no"
+                        },
+                        "name": "Swadesh100"
+                    },
+                    {
+                        "dc:description": "Present in combined meanings of Swadesh100 and Swadesh200.",
+                        "datatype": {
+                            "base": "boolean",
+                            "format": "yes|no"
+                        },
+                        "name": "Swadesh207"
+                    },
+                    {
+                        "dc:description": "Present in 100-item Leipzig-Jakarta list (101 items due to the separation of 'foot' and 'leg' in Uralic languages).",
+                        "datatype": {
+                            "base": "boolean",
+                            "format": "yes|no"
+                        },
+                        "name": "Leipzig_Jakarta"
+                    },
+                    {
+                        "dc:description": "Present in meanings ranked 401-500 in the WOLD database, used in Lehtinen et al. (2014).",
+                        "datatype": {
+                            "base": "boolean",
+                            "format": "yes|no"
+                        },
+                        "name": "WOLD401_500"
+                    },
+                    {
+                        "dc:description": "Present in combined meanings of Swadesh100, Swadesh200 and Leipzig-Jakarta.",
+                        "datatype": {
+                            "base": "boolean",
+                            "format": "yes|no"
+                        },
+                        "name": "Fullbasic"
+                    },
+                    {
+                        "dc:description": "Present in 200-item Swadesh list.",
+                        "datatype": {
+                            "base": "boolean",
+                            "format": "yes|no"
+                        },
+                        "name": "Swadesh200"
+                    }
+                ],
+                "primaryKey": [
+                    "ID"
+                ]
+            },
+            "url": "parameters.csv"
+        },
+        {
+            "dc:conformsTo": "http://cldf.clld.org/v1.0/terms.rdf#CognateTable",
+            "dc:extent": 9751,
+            "tableSchema": {
+                "columns": [
+                    {
+                        "datatype": "string",
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#id",
+                        "name": "ID"
+                    },
+                    {
+                        "datatype": "string",
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#formReference",
+                        "name": "Form_ID"
+                    },
+                    {
+                        "datatype": "string",
+                        "propertyUrl": "http://linguistics-ontology.org/gold/2010/FormUnit",
+                        "name": "Form"
+                    },
+                    {
+                        "datatype": "string",
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#cognatesetReference",
+                        "name": "Cognateset_ID"
+                    },
+                    {
+                        "datatype": "boolean",
+                        "name": "Doubt"
+                    },
+                    {
+                        "datatype": "string",
+                        "default": "expert",
+                        "name": "Cognate_Detection_Method"
+                    },
+                    {
+                        "datatype": "string",
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#source",
+                        "separator": ";",
+                        "name": "Source"
+                    },
+                    {
+                        "datatype": "string",
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#alignment",
+                        "separator": " ",
+                        "name": "Alignment"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "Alignment_Method"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "Alignment_Source"
+                    }
+                ],
+                "foreignKeys": [
+                    {
+                        "columnReference": [
+                            "Form_ID"
+                        ],
+                        "reference": {
+                            "resource": "forms.csv",
+                            "columnReference": [
+                                "ID"
+                            ]
+                        }
+                    }
+                ],
+                "primaryKey": [
+                    "ID"
+                ]
+            },
+            "url": "cognates.csv"
+        },
+        {
+            "dc:conformsTo": "http://cldf.clld.org/v1.0/terms.rdf#BorrowingTable",
+            "dc:extent": 2184,
+            "tableSchema": {
+                "columns": [
+                    {
+                        "datatype": {
+                            "base": "string",
+                            "format": "[a-zA-Z0-9_\\-]+"
+                        },
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#id",
+                        "required": true,
+                        "name": "ID"
+                    },
+                    {
+                        "dc:description": "References the loanword, i.e. the form as borrowed into the target language",
+                        "datatype": "string",
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#targetFormReference",
+                        "required": true,
+                        "name": "Target_Form_ID"
+                    },
+                    {
+                        "dc:description": "References the source word of a borrowing",
+                        "datatype": "string",
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#sourceFormReference",
+                        "required": false,
+                        "name": "Source_Form_ID"
+                    },
+                    {
+                        "datatype": "string",
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#comment",
+                        "required": false,
+                        "name": "Comment"
+                    },
+                    {
+                        "datatype": "string",
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#source",
+                        "required": false,
+                        "separator": ";",
+                        "name": "Source"
+                    },
+                    {
+                        "dc:description": "Likelihood of borrowing (*possible*, *probable* or *clear*).",
+                        "datatype": {
+                            "base": "string",
+                            "format": "possible|clear|probable"
+                        },
+                        "name": "Likelihood"
+                    },
+                    {
+                        "dc:description": "Borrowing source of lexeme.",
+                        "name": "SourceLanguoid"
+                    }
+                ],
+                "foreignKeys": [
+                    {
+                        "columnReference": [
+                            "Target_Form_ID"
+                        ],
+                        "reference": {
+                            "resource": "forms.csv",
+                            "columnReference": [
+                                "ID"
+                            ]
+                        }
+                    },
+                    {
+                        "columnReference": [
+                            "Source_Form_ID"
+                        ],
+                        "reference": {
+                            "resource": "forms.csv",
+                            "columnReference": [
+                                "ID"
+                            ]
+                        }
+                    }
+                ],
+                "primaryKey": [
+                    "ID"
+                ]
+            },
+            "url": "borrowings.csv"
+        }
+    ]
+}

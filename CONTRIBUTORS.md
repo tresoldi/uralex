@@ -12,5 +12,6 @@ Michael Dunn | @evoling | | author
 Urho Määttä | | | author
 Unni-Päivä Leino | | | author
 Luke Maurits | @lmaurits | helped with sources | Other
+Tiago Tresoldi | @tresoldi | IPA conversion, data normalization | DataCurator
 Robert Forkel | @xrotwang | patron, code      | DataCurator
 

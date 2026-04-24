@@ -2,8 +2,9 @@
     "title": "Uralic basic vocabulary with cognate and loanword information",
     "access_right": "open",
     "keywords": [
-        "cldf:Wordlist",
-        "linguistics"
+        "linguistics",
+        "Uralic languages",
+        "basic vocabulary"
     ],
     "creators": [
         {
@@ -57,6 +58,10 @@
         },
         {
             "name": "Robert Forkel",
+            "type": "DataCurator"
+        },
+        {
+            "name": "Tiago Tresoldi",
             "type": "DataCurator"
         }
     ],
